@@ -1,6 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './libs/css/font-awesome.min.css';
+import './libs/css/owl.carousel.min.css';
+// import './libs/js/jquery.js';
+// import './libs/js/progressbar.js';
+// import './libs/js/custom.js';
+// import './libs/js/owl.carousel.min.js';
+
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
