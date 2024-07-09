@@ -1,4 +1,5 @@
 import './../../scss/Welcome.scss'
+import LinkButton from '../elements/LinkButton';
 function Welcome() {
 
     return (
@@ -11,7 +12,7 @@ function Welcome() {
                             <div className="header-text">
                                 <h2>hi <span>,</span> i am <br /> browny <br /> star <span>.</span>   </h2>
                                 <p>ui/ux designer and web developer</p>
-                                <a href="assets/download/browney.txt" download>download resume</a>
+                                <LinkButton text="Download Resume" link="http://google.com" />
                                 {/* <!--/.header-text--> */}
                             </div>{/* <!--/.col--> */}
                         </div>{/* <!-- /.row--> */}

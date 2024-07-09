@@ -1,14 +1,13 @@
 import './../../scss/About.scss';
 import profileImage from './../../images/profile_image.jpg';
+import SectionHeader from '../elements/SectionHeader';
 
 function About() {
     return (
         <>
             {/* <!--about start --> */}
             <section id="about" className="about">
-                <div className="section-heading text-center">
-                    <h2>about me</h2>
-                </div>
+                <SectionHeader text="About Me" />
                 <div className="container">
                     <div className="about-content">
                         <div className="row">
