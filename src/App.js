@@ -1,3 +1,4 @@
+
 import logo from './logo.svg';
 import './App.css';
 import Header from './components/sections/Header.js';
@@ -13,14 +14,14 @@ import Contact from './components/sections/Contact.js';
 import Footer from './components/sections/Footer.js';
 
 
-function App() {
+function App(props) {
   return (
     <>
       <Header />
       <Welcomde />
       <About />
       <Educations />
-      <Skills />
+      <Skills scrollTop={props.scrollTop}/>
       <Experience />
       <Profile />
       <Portfolio />
@@ -30,6 +31,8 @@ function App() {
     </>
   );
 }
+
+
 
 
 export default App;

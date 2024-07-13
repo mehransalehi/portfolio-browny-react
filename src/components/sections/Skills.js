@@ -1,10 +1,56 @@
+import { useState, useEffect, useRef } from 'react';
 import './../../scss/Skills.scss';
+import SkillBar from './../elements/SkillBar';
 
-function Skills() {
+
+function Skills(props) {
+    let skills = [
+        {
+            id: 1,
+            text: 'html 5',
+            value: '90%'
+        }, {
+            id: 2,
+            text: 'css 3 animation',
+            value: '80%'
+        }, {
+            id: 3,
+            text: 'communication',
+            value: '70%'
+        }, {
+            id: 4,
+            text: 'creativity',
+            value: '90%'
+        }, {
+            id: 5,
+            text: 'adobe photoshop',
+            value: '85%'
+        }, {
+            id: 6,
+            text: 'adobe illustrator',
+            value: '75%'
+        }, {
+            id: 7,
+            text: 'sketch',
+            value: '60%'
+        }, {
+            id: 8,
+            text: 'adobe after effects',
+            value: '90%'
+        },
+    ]
+    const [scrollReached, setScrollReached] = useState(false);
+    const skillSection = useRef();
+
+    useEffect(()=>{
+        if (props.scrollTop + 300 > skillSection.current.offsetTop) {
+            setScrollReached(true);
+        }
+    },[props.scrollTop]);
     return (
         <>
             {/* <!--skills start --> */}
-            <section id="skills" className="skills">
+            <section id="skills" className="skills" ref={skillSection}>
                 <div className="skill-content">
                     <div className="section-heading text-center">
                         <h2>skills</h2>
@@ -13,98 +59,24 @@ function Skills() {
                         <div className="row">
                             <div className="col-md-6">
                                 <div className="single-skill-content">
-                                    <div className="barWrapper">
-                                        <span className="progressText">adobe photoshop</span>
-                                        <div className="single-progress-txt">
-                                            <div className="progress ">
-                                                <div className="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="10" aria-valuemax="100">
-
-                                                </div>
-                                            </div>
-                                            <h3>90%</h3>
-                                        </div>
-                                    </div>{/* <!-- /.barWrapper --> */}
-                                    <div className="barWrapper">
-                                        <span className="progressText">adobe illustrator</span>
-                                        <div className="single-progress-txt">
-                                            <div className="progress ">
-                                                <div className="progress-bar" role="progressbar" aria-valuenow="85" aria-valuemin="10" aria-valuemax="100">
-
-                                                </div>
-                                            </div>
-                                            <h3>85%</h3>
-                                        </div>
-                                    </div>{/* <!-- /.barWrapper --> */}
-                                    <div className="barWrapper">
-                                        <span className="progressText">adobe after effects</span>
-                                        <div className="single-progress-txt">
-                                            <div className="progress ">
-                                                <div className="progress-bar" role="progressbar" aria-valuenow="97" aria-valuemin="10" aria-valuemax="100">
-
-                                                </div>
-                                            </div>
-                                            <h3>97%</h3>
-                                        </div>
-                                    </div>{/* <!-- /.barWrapper --> */}
-                                    <div className="barWrapper">
-                                        <span className="progressText">sketch</span>
-                                        <div className="single-progress-txt">
-                                            <div className="progress ">
-                                                <div className="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="10" aria-valuemax="100">
-
-                                                </div>
-                                            </div>
-                                            <h3>90%</h3>
-                                        </div>
-                                    </div>{/* <!-- /.barWrapper --> */}
+                                    {skills.map((skill, index) => {
+                                        if (index < 4) {
+                                            return (
+                                                <SkillBar key={skill.id} scroll={scrollReached} text={skill.text} value={skill.value} />
+                                            );
+                                        }
+                                    })}
                                 </div>
                             </div>
                             <div className="col-md-6">
                                 <div className="single-skill-content">
-                                    <div className="barWrapper">
-                                        <span className="progressText">html 5</span>
-                                        <div className="single-progress-txt">
-                                            <div className="progress ">
-                                                <div className="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="10" aria-valuemax="100">
-
-                                                </div>
-                                            </div>
-                                            <h3>90%</h3>
-                                        </div>
-                                    </div>{/* <!-- /.barWrapper --> */}
-                                    <div className="barWrapper">
-                                        <span className="progressText">css 3 animation</span>
-                                        <div className="single-progress-txt">
-                                            <div className="progress ">
-                                                <div className="progress-bar" role="progressbar" aria-valuenow="85" aria-valuemin="10" aria-valuemax="100">
-
-                                                </div>
-                                            </div>
-                                            <h3>85%</h3>
-                                        </div>
-                                    </div>{/* <!-- /.barWrapper --> */}
-                                    <div className="barWrapper">
-                                        <span className="progressText">communication</span>
-                                        <div className="single-progress-txt">
-                                            <div className="progress ">
-                                                <div className="progress-bar" role="progressbar" aria-valuenow="97" aria-valuemin="10" aria-valuemax="100">
-
-                                                </div>
-                                            </div>
-                                            <h3>97%</h3>
-                                        </div>
-                                    </div>{/* <!-- /.barWrapper --> */}
-                                    <div className="barWrapper">
-                                        <span className="progressText"> creativity</span>
-                                        <div className="single-progress-txt">
-                                            <div className="progress ">
-                                                <div className="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="10" aria-valuemax="100">
-
-                                                </div>
-                                            </div>
-                                            <h3>90%</h3>
-                                        </div>
-                                    </div>{/* <!-- /.barWrapper --> */}
+                                    {skills.map((skill, index) => {
+                                        if (index > 3) {
+                                            return (
+                                                <SkillBar key={skill.id} scroll={scrollReached} text={skill.text} value={skill.value} />
+                                            );
+                                        }
+                                    })}
                                 </div>
                             </div>
                         </div>{/* <!-- /.row --> */}
