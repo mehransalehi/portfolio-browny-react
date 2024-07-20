@@ -1,5 +1,17 @@
 import './../../scss/Header.scss'
+
 function Header(){
+
+	function handleClick(e){
+		e.preventDefault();
+
+		let id = e.target.getAttribute('href');
+		let target = document.querySelector(id);
+		window.scrollTo({
+			top: target.offsetTop - 100 , 
+			behavior : 'smooth'
+		}) 
+	}
     return (
         <>
         {/* <!-- top-area Start --> */}
@@ -23,13 +35,13 @@ function Header(){
 			            <div className="collapse navbar-collapse menu-ui-design show" id="navbar-menu">
 			                <ul className="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
 			                <li className=" smooth-menu active"></li>
-			                    <li className=" smooth-menu"><a href="#education">education</a></li>
-			                    <li className="smooth-menu"><a href="#skills">skills</a></li>
-			                    <li className="smooth-menu"><a href="#experience">experience</a></li>
-			                    <li className="smooth-menu"><a href="#profiles">profile</a></li>
-			                    <li className="smooth-menu"><a href="#portfolio">portfolio</a></li>
-			                    <li className="smooth-menu"><a href="#clients">clients</a></li>
-			                    <li className="smooth-menu"><a href="#contact">contact</a></li>
+			                    <li className="smooth-menu"><a href="#education" onClick={handleClick}>education</a></li>
+			                    <li className="smooth-menu"><a href="#skills" onClick={handleClick}>skills</a></li>
+			                    <li className="smooth-menu"><a href="#experience" onClick={handleClick}>experience</a></li>
+			                    <li className="smooth-menu"><a href="#profiles" onClick={handleClick}>profile</a></li>
+			                    <li className="smooth-menu"><a href="#portfolio" onClick={handleClick}>portfolio</a></li>
+			                    <li className="smooth-menu"><a href="#clients" onClick={handleClick}>clients</a></li>
+			                    <li className="smooth-menu"><a href="#contact" onClick={handleClick}>contact</a></li>
 			                </ul>{/* <!--/.nav --> */}
 			            </div>{/* <!-- /.navbar-collapse --> */}
 			        </div>{/* <!--/.container--> */}
@@ -43,5 +55,5 @@ function Header(){
     )
 }
 
-
+ 
 export default Header;

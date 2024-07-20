@@ -28,8 +28,13 @@
     font-weight: 700;
     text-transform: uppercase;
     line-height: 1.5;
+    transform: translateY(20px);
+    opacity: 0;
+    transition: all 1s ease-in-out;
 }
-.header-text h2 span {color: $color1;}
+.header-text h2 span {
+    color: $color1;
+}
 .header-text p {
     color: #fff;
     font-size: 20px;
@@ -37,4 +42,11 @@
     text-transform: uppercase;
     margin: 30px 0 60px;
     letter-spacing: 1px;
+    transform: translateY(-20px);
+    opacity: 0;
+    transition: all 1s ease-in-out;
 }/*.header-text-area*/
+.header-text h2.loaded,.header-text p.loaded{
+    transform: translateY(0px);
+    opacity: 1;
+}

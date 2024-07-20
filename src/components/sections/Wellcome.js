@@ -1,7 +1,17 @@
+import { useEffect } from 'react';
 import './../../scss/Welcome.scss'
 import LinkButton from '../elements/LinkButton';
+import React from 'react';
 function Welcome() {
 
+    useEffect(()=>{
+        let h2 = document.querySelector('.header-text>h2');
+        let p = document.querySelector('.header-text>p');
+
+        h2.classList.add('loaded');
+        p.classList.add('loaded');
+    },[]);
+      
     return (
         <>
             {/* <!--welcome-hero start --> */}

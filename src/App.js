@@ -27,7 +27,7 @@ function App(props) {
       <Portfolio />
       <Clients />
       <Contact />
-      <Footer />
+      <Footer scrollTop={props.scrollTop} />
     </>
   );
 }

@@ -1,7 +1,7 @@
 import './../../scss/Footer.scss';
+import ScrollTopButton from '../elements/ScrollTopButton';
 
-
-function Footer(){
+function Footer(props){
     return(
         <>
         {/*<!--footer-copyright start-->*/}
@@ -13,14 +13,7 @@ function Footer(){
 					</p>{/*<!--/p-->*/}
 				</div>{/*<!--/.text-center-->*/}
 			</div>{/*<!--/.container-->*/}
-
-			<div id="scroll-Top">
-				<div className="return-to-top">
-					<i className="fa fa-angle-up " id="scroll-top" ></i>
-				</div>
-				
-			</div>{/*<!--/.scroll-Top-->*/}
-			
+			<ScrollTopButton scrollTop={props.scrollTop}/>
         </footer>{/*<!--/.footer-copyright-->*/}
 		{/*<!--footer-copyright end-->*/}
         </>
